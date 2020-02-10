@@ -1,0 +1,19 @@
+[ghq]
+	root = ~/dev/src
+[user]
+	name = yayoc
+	email = n.yayoshi+github@gmail.com
+[credential]
+	helper = osxkeychain
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+    editor = vim
+[color]
+	ui = true
+	diff = true
+
+
