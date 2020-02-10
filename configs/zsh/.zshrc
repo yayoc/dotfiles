@@ -110,6 +110,7 @@ source $ZSH/oh-my-zsh.sh
 alias vim="/usr/local/bin/vim"
 
 alias g='git'
+alias c='clear'
 
 
 bindkey '^]' peco-src
