@@ -38,3 +38,6 @@ set foldlevelstart=10 " open most folds by default
 
 " Sound
 set belloff=all
+
+" Swap
+set noswapfile
