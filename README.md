@@ -1,4 +1,4 @@
 # dotfiles
 
-dotfies for @yayoc dev env.
+dotfies for [@yayoc](https://github.com/yayoc) dev env.
 
