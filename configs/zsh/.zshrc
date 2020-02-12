@@ -5,6 +5,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Load Golang
 export PATH=/usr/local/go/bin:$PATH
 export PATH=$HOME/dev/bin:$PATH
+export PATH=$HOME/dotfiles/bin:$PATH
 
 export GOPATH=~/dev
 
