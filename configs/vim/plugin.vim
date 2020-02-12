@@ -28,11 +28,13 @@ autocmd vimenter * NERDTree
 autocmd InsertLeave * set nopaste
 autocmd FileType * set formatoptions-=ro
 
-Plug 'tpope/vim-fugitive'
-Plug 'ctrlpvim/ctrlp.vim'
-
 Plug 'sheerun/vim-polyglot'
 Plug 'airblade/vim-gitgutter'
+
+Plug 'junegunn/fzf', { 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+nnoremap <C-p> :Files<Cr>
+nnoremap <C-r> :Rg<Cr>
 
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
