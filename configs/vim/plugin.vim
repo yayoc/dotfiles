@@ -1,8 +1,17 @@
 call plug#begin()
 
-Plug 'scrooloose/nerdtree'
+" Color scheme
+Plug 'joshdick/onedark.vim'
+Plug 'jdsimcoe/abstract.vim'
+Plug 'w0ng/vim-hybrid'
+Plug 'sts10/vim-pink-moon'
+Plug 'tlhr/anderson.vim'
+Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'ayu-theme/ayu-vim'
 
 " Nerdtree
+Plug 'scrooloose/nerdtree'
+
 map <leader>r :NERDTreeFind<cr>
 let NERDTreeShowHidden=1
 
