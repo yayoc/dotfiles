@@ -39,6 +39,7 @@ autocmd FileType * set formatoptions-=ro
 
 Plug 'sheerun/vim-polyglot'
 Plug 'airblade/vim-gitgutter'
+Plug 'neomake/neomake'
 
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -81,7 +82,7 @@ if executable('rls')
         \ })
 endif
 
-
+let g:rustfmt_autosave = 1
 
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
@@ -98,3 +99,6 @@ augroup lsp_install
 augroup END
 
 call plug#end()
+
+call neomake#configure#automake('w')
+
