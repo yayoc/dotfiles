@@ -6,6 +6,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
 export PATH=$HOME/dev/bin:$PATH
 export PATH=$HOME/dotfiles/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
 
 export GOPATH=~/dev
 
