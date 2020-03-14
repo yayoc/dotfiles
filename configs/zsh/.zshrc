@@ -115,6 +115,7 @@ alias go="/usr/local/bin/go"
 
 alias g='git'
 alias c='clear'
+alias vim='nvim'
 
 
 bindkey '^]' peco-src
@@ -127,3 +128,6 @@ function peco-src {
   zle -R -c
 }
 zle -N peco-src
+
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+

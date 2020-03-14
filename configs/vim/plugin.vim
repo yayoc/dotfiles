@@ -8,6 +8,7 @@ Plug 'sts10/vim-pink-moon'
 Plug 'tlhr/anderson.vim'
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'ayu-theme/ayu-vim'
+Plug 'chriskempson/base16-vim'
 
 " Nerdtree
 Plug 'scrooloose/nerdtree'
@@ -38,8 +39,10 @@ autocmd InsertLeave * set nopaste
 autocmd FileType * set formatoptions-=ro
 
 Plug 'sheerun/vim-polyglot'
+let g:rustfmt_autosave = 1
 Plug 'airblade/vim-gitgutter'
 Plug 'neomake/neomake'
+Plug 'itchyny/lightline.vim'
 
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -51,6 +54,7 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
+let g:lsp_diagnostics_enabled = 0 " disable diagnostics support
 " for debug lsp
 " let g:lsp_log_verbose = 1
 " let g:lsp_log_file = expand('~/vim-lsp.log')
@@ -77,12 +81,10 @@ if executable('rls')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'rls',
         \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
-        \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
         \ 'whitelist': ['rust'],
         \ })
 endif
 
-let g:rustfmt_autosave = 1
 
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
