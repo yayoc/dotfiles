@@ -116,6 +116,7 @@ alias go="/usr/local/bin/go"
 alias g='git'
 alias c='clear'
 alias vim='nvim'
+alias python='python3'
 
 
 bindkey '^]' peco-src

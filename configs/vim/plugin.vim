@@ -42,6 +42,8 @@ Plug 'sheerun/vim-polyglot'
 let g:rustfmt_autosave = 1
 Plug 'airblade/vim-gitgutter'
 Plug 'neomake/neomake'
+let g:neomake_python_python_exe = 'python3'
+
 Plug 'itchyny/lightline.vim'
 
 Plug 'junegunn/fzf', { 'do': './install --bin' }
@@ -84,7 +86,6 @@ if executable('rls')
         \ 'whitelist': ['rust'],
         \ })
 endif
-
 
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
