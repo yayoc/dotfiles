@@ -56,6 +56,13 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
+Plug 'sbdchd/neoformat'
+" https://github.com/sbdchd/neoformat/issues/143
+if isdirectory($PWD .'/node_modules')
+    let $PATH .= ':' . $PWD . '/node_modules/.bin'
+endif
+" autocmd BufWritePre * Neoformat
+
 let g:lsp_diagnostics_enabled = 0 " disable diagnostics support
 " for debug lsp
 " let g:lsp_log_verbose = 1
