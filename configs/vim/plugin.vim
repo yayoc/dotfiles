@@ -62,6 +62,10 @@ if isdirectory($PWD .'/node_modules')
     let $PATH .= ':' . $PWD . '/node_modules/.bin'
 endif
 " autocmd BufWritePre * Neoformat
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
 
 let g:lsp_diagnostics_enabled = 0 " disable diagnostics support
 " for debug lsp
