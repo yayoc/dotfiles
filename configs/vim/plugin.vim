@@ -9,6 +9,9 @@ Plug 'tlhr/anderson.vim'
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'ayu-theme/ayu-vim'
 Plug 'chriskempson/base16-vim'
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Nerdtree
 Plug 'scrooloose/nerdtree'
