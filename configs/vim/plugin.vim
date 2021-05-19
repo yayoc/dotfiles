@@ -11,7 +11,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Nerdtree
 Plug 'scrooloose/nerdtree'
@@ -44,8 +44,8 @@ autocmd FileType * set formatoptions-=ro
 Plug 'sheerun/vim-polyglot'
 let g:rustfmt_autosave = 1
 Plug 'airblade/vim-gitgutter'
-Plug 'neomake/neomake'
-let g:neomake_python_python_exe = 'python3'
+" Plug 'neomake/neomake'
+" let g:neomake_python_python_exe = 'python3'
 
 Plug 'itchyny/lightline.vim'
 
@@ -70,11 +70,29 @@ augroup fmt
   autocmd BufWritePre * undojoin | Neoformat
 augroup END
 
-let g:lsp_diagnostics_enabled = 0 " disable diagnostics support
+" let g:lsp_diagnostics_enabled = 0 " disable diagnostics support
 " for debug lsp
 " let g:lsp_log_verbose = 1
 " let g:lsp_log_file = expand('~/vim-lsp.log')
 " let g:asyncomplete_log_file = expand('~/asyncomplete.log')
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:asyncomplete_auto_popup = 0
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ asyncomplete#force_refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+let g:asyncomplete_auto_completeopt = 0
+let g:asyncomplete_popup_delay = 200
+" let g:lsp_text_edit_enabled = 0
 
 if executable('gopls')
     au User lsp_setup call lsp#register_server({
@@ -117,5 +135,5 @@ augroup END
 
 call plug#end()
 
-call neomake#configure#automake('w')
+" call neomake#configure#automake('w')
 

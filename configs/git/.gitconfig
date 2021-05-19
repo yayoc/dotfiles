@@ -12,6 +12,7 @@
 	required = true
 [core]
     editor = vim
+	excludesfile = /Users/yayoc/.gitignore_global
 [color]
 	ui = true
 	diff = true
@@ -24,3 +25,11 @@
 	cane = commit --amend --no-edit
 	lo = log --oneline -n 10
 	pr = pull --rebase
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/yayoc/dotfiles/configs/git/.git-commit-template.txt
