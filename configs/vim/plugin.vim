@@ -11,7 +11,6 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Nerdtree
 Plug 'scrooloose/nerdtree'
@@ -44,14 +43,13 @@ autocmd FileType * set formatoptions-=ro
 Plug 'sheerun/vim-polyglot'
 let g:rustfmt_autosave = 1
 Plug 'airblade/vim-gitgutter'
-" Plug 'neomake/neomake'
-" let g:neomake_python_python_exe = 'python3'
 
 Plug 'itchyny/lightline.vim'
 
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-nnoremap <C-p> :Files<Cr>
+
+nnoremap <C-p> :GFiles<Cr>
 nnoremap <C-r> :Rg<Cr>
 
 Plug 'prabirshrestha/async.vim'
@@ -92,7 +90,6 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 let g:asyncomplete_auto_completeopt = 0
 let g:asyncomplete_popup_delay = 200
-" let g:lsp_text_edit_enabled = 0
 
 if executable('gopls')
     au User lsp_setup call lsp#register_server({
@@ -134,6 +131,4 @@ augroup lsp_install
 augroup END
 
 call plug#end()
-
-" call neomake#configure#automake('w')
 
