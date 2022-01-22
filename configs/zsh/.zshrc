@@ -111,7 +111,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias vim="/usr/local/bin/vim"
-alias go="/usr/local/bin/go"
+alias go="/usr/local/go/bin/go"
 
 alias g='git'
 alias c='clear'
