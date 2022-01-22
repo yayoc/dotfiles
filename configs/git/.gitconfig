@@ -11,7 +11,7 @@
 	process = git-lfs filter-process
 	required = true
 [core]
-    editor = vim
+	editor = nvim
 	excludesfile = /Users/yayoc/.gitignore_global
 [color]
 	ui = true
