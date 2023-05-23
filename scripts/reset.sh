@@ -3,5 +3,5 @@ set -e
 
 rm ~/.zshrc
 rm ~/.tmux.conf
-rm ~/.vimrc
+rm -r ~/.config/nvim
 rm ~/.gitconfig
