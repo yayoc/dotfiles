@@ -2,15 +2,6 @@ call plug#begin()
 
 " Color scheme
 Plug 'joshdick/onedark.vim'
-Plug 'jdsimcoe/abstract.vim'
-Plug 'w0ng/vim-hybrid'
-Plug 'sts10/vim-pink-moon'
-Plug 'tlhr/anderson.vim'
-Plug 'tyrannicaltoucan/vim-deep-space'
-Plug 'ayu-theme/ayu-vim'
-Plug 'chriskempson/base16-vim'
-Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
 
 " Nerdtree
 Plug 'scrooloose/nerdtree'
@@ -18,13 +9,12 @@ Plug 'scrooloose/nerdtree'
 map <leader>r :NERDTreeFind<cr>
 let NERDTreeShowHidden=1
 
-" Check
 " Check if NERDTree is open or active
 function! s:isNERDTreeOpen()
   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
 endfunction
 
-" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" Call NERDTreeFind if NERDTree is active, current window contains a modifiable
 " file, and we're not in vimdiff
 function! s:syncTree()
   if &modifiable && s:isNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
@@ -41,87 +31,12 @@ autocmd InsertLeave * set nopaste
 autocmd FileType * set formatoptions-=ro
 
 Plug 'sheerun/vim-polyglot'
-let g:rustfmt_autosave = 1
 Plug 'airblade/vim-gitgutter'
-
-Plug 'itchyny/lightline.vim'
 
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 nnoremap <C-p> :GFiles<Cr>
-nnoremap <C-r> :Rg<Cr>
-
-Plug 'neovim/nvim-lspconfig'
-
-" Completion framework
-Plug 'hrsh7th/nvim-cmp'
-" LSP completion source for nvim-cmp
-Plug 'hrsh7th/cmp-nvim-lsp'
-
-" Snippet completion source for nvim-cmp
-Plug 'hrsh7th/cmp-vsnip'
-
-" Other usefull completion sources
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-buffer'
-
-" To enable more of the features of rust-analyzer, such as inlay hints and more!
-Plug 'simrat39/rust-tools.nvim'
-
-" Snippet engine
-Plug 'hrsh7th/vim-vsnip'
-
-
-Plug 'sbdchd/neoformat'
-" https://github.com/sbdchd/neoformat/issues/143
-if isdirectory($PWD .'/node_modules')
-    let $PATH .= ':' . $PWD . '/node_modules/.bin'
-endif
-" autocmd BufWritePre * Neoformat
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
-
-" let g:lsp_diagnostics_enabled = 0 " disable diagnostics support
-" for debug lsp
-" let g:lsp_log_verbose = 1
-" let g:lsp_log_file = expand('~/vim-lsp.log')
-" let g:asyncomplete_log_file = expand('~/asyncomplete.log')
-let g:lsp_diagnostics_enabled = 1
-let g:lsp_diagnostics_echo_cursor = 1
-let g:asyncomplete_auto_popup = 0
-
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ asyncomplete#force_refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-let g:asyncomplete_auto_completeopt = 0
-let g:asyncomplete_popup_delay = 200
-
-function! s:on_lsp_buffer_enabled() abort
-    setlocal omnifunc=lsp#complete
-    setlocal signcolumn=yes
-    nmap <buffer> gd <plug>(lsp-definition)
-    nmap <buffer> ,n <plug>(lsp-next-error)
-    nmap <buffer> ,p <plug>(lsp-previous-error)
-    nmap <buffer> <f2> <plug>(lsp-rename)
-endfunction
-
-augroup lsp_install
-    au!
-    " call s:on_lsp_buffer_enabled only for languages that has the
-    " server registered.
-    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
 
 call plug#end()
 

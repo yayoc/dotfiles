@@ -27,14 +27,8 @@ set guifont=Monaco:h14
 
 " Searching
 
-set ignorecase " ignore case when searching
 set incsearch " search as characters are entered
 set hlsearch " highlight all matches
-
-" Folding
-
-set foldenable " enable folding
-set foldlevelstart=10 " open most folds by default
 
 " Sound
 set belloff=all
