@@ -1,6 +1,8 @@
 export LC_ALL=en_US.UTF-8
 
 # If you come from bash you might have to change your $PATH.
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
