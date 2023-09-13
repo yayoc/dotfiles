@@ -37,7 +37,10 @@ Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 nnoremap <C-p> :GFiles<Cr>
+nnoremap <C-g> :GFiles?<Cr>
 nnoremap <C-r> :Rg<Cr>
+nnoremap <C-b> :Buffers<Cr>
+nnoremap <C-h> :History<Cr>
 
 call plug#end()
 
