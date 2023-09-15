@@ -42,5 +42,18 @@ nnoremap <C-r> :Rg<Cr>
 nnoremap <C-b> :Buffers<Cr>
 nnoremap <C-h> :History<Cr>
 
+" autoformat c files
+function! Formatonsave()
+  let l:formatdiff = 1
+  if has('unix')
+    if filereadable('/usr/share/clang/clang-format-10/clang-format.py')
+      py3f /usr/share/clang/clang-format-10/clang-format.py
+    else
+      echo "clang-format.py not found. Formatting might not work."
+    endif
+  endif
+endfunction
+autocmd BufWritePre *.h,*.cc,*.c,*.cpp call Formatonsave()
+
 call plug#end()
 
