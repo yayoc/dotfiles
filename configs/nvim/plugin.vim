@@ -1,7 +1,7 @@
 call plug#begin()
 
 " Color scheme
-Plug 'joshdick/onedark.vim'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 " Nerdtree
 Plug 'scrooloose/nerdtree'
