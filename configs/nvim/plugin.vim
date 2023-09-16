@@ -50,6 +50,7 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
+    :qa
     setlocal signcolumn=yes
     if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
     nmap <buffer> gd <plug>(lsp-definition)
@@ -64,7 +65,7 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> K <plug>(lsp-hover)
 
     let g:lsp_format_sync_timeout = 1000
-    autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+    autocmd! BufWritePre *.c,*.h call execute('LspDocumentFormatSync')
 endfunction
 
 augroup lsp_install
