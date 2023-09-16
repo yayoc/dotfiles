@@ -42,18 +42,36 @@ nnoremap <C-r> :Rg<Cr>
 nnoremap <C-b> :Buffers<Cr>
 nnoremap <C-h> :History<Cr>
 
-" autoformat c files
-function! Formatonsave()
-  let l:formatdiff = 1
-  if has('unix')
-    if filereadable('/usr/share/clang/clang-format-10/clang-format.py')
-      py3f /usr/share/clang/clang-format-10/clang-format.py
-    else
-      echo "clang-format.py not found. Formatting might not work."
-    endif
-  endif
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gs <plug>(lsp-document-symbol-search)
+    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+
+    let g:lsp_format_sync_timeout = 1000
+    autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
 endfunction
-autocmd BufWritePre *.h,*.cc,*.c,*.cpp call Formatonsave()
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
 
 call plug#end()
 
