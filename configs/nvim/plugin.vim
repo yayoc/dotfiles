@@ -43,6 +43,10 @@ nnoremap <C-b> :Buffers<Cr>
 nnoremap <C-h> :History<Cr>
 
 Plug 'prabirshrestha/vim-lsp'
+" let g:lsp_diagnostics_enabled = 0         " disable diagnostics support
+" let g:lsp_log_verbose = 1
+" let g:lsp_log_file = expand('~/vim-lsp.log')
+" let g:asyncomplete_log_file = expand('~/asyncomplete.log')
 Plug 'mattn/vim-lsp-settings'
 
 Plug 'prabirshrestha/asyncomplete.vim'
@@ -50,7 +54,6 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
-    :qa
     setlocal signcolumn=yes
     if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
     nmap <buffer> gd <plug>(lsp-definition)
