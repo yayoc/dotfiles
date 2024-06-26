@@ -24,6 +24,7 @@ set showmatch " higlight matching parenthesis
 set fillchars+=vert:┃
 set clipboard=unnamedplus
 set guifont=Monaco:h14
+set termguicolors
 
 " Searching
 

@@ -109,6 +109,7 @@ alias g='git'
 alias c='clear'
 alias vim='nvim'
 alias python='python3'
+alias tmux='tmux -2'
 
 bindkey '^]' peco-src
 function peco-src {
