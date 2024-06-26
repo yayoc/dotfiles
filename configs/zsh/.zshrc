@@ -121,4 +121,7 @@ function peco-src {
 }
 zle -N peco-src
 
+# https://github.com/peco/peco/issues/554
+export TERM=xterm
+
 
