@@ -22,7 +22,7 @@ set wildmenu
 set lazyredraw
 set showmatch " higlight matching parenthesis
 set fillchars+=vert:┃
-set clipboard=unnamed " copy to the system clipboard
+set clipboard=unnamedplus
 set guifont=Monaco:h14
 
 " Searching
