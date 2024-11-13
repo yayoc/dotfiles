@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/bash
 
 # Install latest [hn](https://github.com/yayoc/hn) binary.
 
